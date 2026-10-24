@@ -84,7 +84,7 @@ h2{font-family:var(--display); font-weight:700; font-size:clamp(1.4rem,3vw,2rem)
 .pin.drop{animation:drop .55s cubic-bezier(.3,1.5,.5,1)}
 @keyframes drop{from{transform:translate(-50%,-34px); opacity:0} to{transform:translate(-50%,0); opacity:1}}
 .listing{border:1.5px solid var(--accent); border-radius:14px; padding:10px 12px; background:var(--screen); box-shadow:0 6px 16px -10px rgba(249,115,22,.7)}
-.listing h4{margin:0; font-size:14px; font-weight:600}
+.listing .lt{margin:0; font-size:14px; font-weight:600}
 .meta{color:var(--screen-muted); font-size:12px}
 .open{color:var(--open); font-weight:500}
 .chips{display:flex; gap:6px; margin-top:8px; flex-wrap:wrap}
