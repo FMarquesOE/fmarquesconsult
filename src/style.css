@@ -272,3 +272,35 @@ h2{font-family:var(--display); font-weight:700; font-size:clamp(1.4rem,3vw,2rem)
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation:none!important; transition:none!important}
 }
+
+/* Preço parcelado */
+.price .big .x{font-family:var(--body); font-weight:500; font-size:.95rem; letter-spacing:0; color:var(--muted); margin-right:2px}
+.price .total{font-size:.78rem; line-height:1.45; color:var(--muted); margin:4px 0 6px; max-width:34ch}
+
+/* Contato e direitos */
+.contact{margin-top:28px; padding-block:32px; border-top:1px solid var(--line); display:grid; grid-template-columns:1fr auto; gap:24px 40px; align-items:center}
+.contact-id{display:flex; gap:18px; align-items:center; min-width:0}
+.contact-id div{display:flex; flex-direction:column; gap:2px; min-width:0}
+.contact-id .eyebrow{margin-bottom:4px}
+.contact-id strong{font-family:var(--display); font-size:1.15rem; font-weight:700}
+.contact-id span{color:var(--muted); font-size:.92rem}
+.contact-id .where{font-size:.86rem}
+.contact-photo{width:88px; height:88px; border-radius:50%; object-fit:cover; border:3px solid var(--accent); flex:none; background:var(--soft)}
+.channels{display:flex; flex-wrap:wrap; gap:12px}
+.channel{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:12px 18px 12px 12px; min-width:0; transition:border-color .2s, transform .2s}
+.channel:hover{border-color:var(--ink); transform:translateY(-2px)}
+.ch-ico{width:44px; height:44px; border-radius:12px; display:grid; place-items:center; flex:none}
+.ch-ico::before{content:""; width:24px; height:24px; background:#FFFFFF; -webkit-mask:var(--glyph) center/contain no-repeat; mask:var(--glyph) center/contain no-repeat}
+.i-wa{background:var(--wa); --glyph:url(/icons/whatsapp.svg)}
+.i-ig{background:radial-gradient(circle at 30% 107%, #FDF497 0%, #FDF497 5%, #FD5949 45%, #D6249F 60%, #285AEB 90%); --glyph:url(/icons/instagram.svg)}
+.ch-txt{display:flex; flex-direction:column; line-height:1.25}
+.ch-txt small{font-size:.76rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-weight:600}
+.ch-txt b{font-size:1.05rem; font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap}
+.wa-glyph{width:30px; height:30px; background:var(--wa-ink); -webkit-mask:url(/icons/whatsapp.svg) center/contain no-repeat; mask:url(/icons/whatsapp.svg) center/contain no-repeat}
+.legal{padding-block:20px 110px; border-top:1px solid var(--line); font-size:.78rem; line-height:1.5; color:var(--muted)}
+.legal p{margin:0 0 4px; max-width:90ch}
+@media (max-width:880px){
+  .contact{grid-template-columns:1fr}
+  .channels{flex-direction:column}
+  .channel{width:100%}
+}

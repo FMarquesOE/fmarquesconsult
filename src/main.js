@@ -6,9 +6,9 @@
   /* ---------- 1. Demonstração no celular (roda uma vez e para) ---------- */
   var scenes = [
     {q:"manicure perto de mim", cat:"Manicure", msg:"Oi! Te achei no Google. Tem horário amanhã?"},
-    {q:"bolo de aniversário em caxias", cat:"Confeitaria", msg:"Oi! Vi vocês no Google. Fazem bolo para sábado?"},
-    {q:"conserto de celular perto de mim", cat:"Assistência técnica", msg:"Oi! Achei vocês no Google. Vocês trocam tela?"},
-    {q:"salão de beleza aberto agora", cat:"Salão de beleza", msg:"Oi! Te achei no Google. Ainda dá pra encaixar hoje?"}
+    {q:"bolo de aniversário em caxias", cat:"Confeitaria", msg:"Oi! Vi o site de vocês. Fazem bolo para sábado?"},
+    {q:"conserto de celular perto de mim", cat:"Assistência técnica", msg:"Oi! Achei vocês na internet. Vocês trocam tela?"},
+    {q:"salão de beleza aberto agora", cat:"Salão de beleza", msg:"Oi! Vi vocês no Instagram. Ainda dá pra encaixar hoje?"}
   ];
   var si = 0, timers = [];
   var qEl = document.getElementById('q'), caret = document.getElementById('caret'),
