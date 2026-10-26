@@ -1,6 +1,8 @@
 /* Layout: uma página longa, uma coluna no celular; no computador, duas colunas onde ajuda. Laranja só em botões e destaques. */
 :root{
   color-scheme:light;
+  --brand-serif:"Fraunces",Georgia,"Times New Roman",serif; --brand-sans:"DM Sans",system-ui,sans-serif;
+  --logo-ink:#1C2B4A; --slogan:#C2410C;
   --bg:#F4F5F8; --surface:#FFFFFF; --ink:#13203A; --muted:#566079; --line:#DDE1EA; --soft:#E8ECF4;
   --accent:#F97316; --accent-ink:#13203A; --accent-tint:#FCDDC4; --wa:#1DA851; --wa-ink:#FFFFFF;
   --band:#13203A; --band-ink:#F4F5F8; --band-muted:#B5BED2;
@@ -13,11 +15,13 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
+    --logo-ink:#F4EDE1; --slogan:#FB923C;
     --bg:#0D1424; --surface:#152038; --ink:#EDF0F6; --muted:#A4AEC4; --line:#26324D; --soft:#1B2843;
     --accent-tint:#5A3214; --shadow:rgba(0,0,0,.55); --band:#1B2843; --band-ink:#EDF0F6; --band-muted:#A4AEC4; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
+  --logo-ink:#F4EDE1; --slogan:#FB923C;
   --bg:#0D1424; --surface:#152038; --ink:#EDF0F6; --muted:#A4AEC4; --line:#26324D; --soft:#1B2843;
   --accent-tint:#5A3214; --shadow:rgba(0,0,0,.55); --band:#1B2843; --band-ink:#EDF0F6; --band-muted:#A4AEC4; color-scheme:dark;
 }
@@ -33,8 +37,6 @@ section{scroll-margin-top:16px}
 
 /* Topo da página */
 .top{display:flex; justify-content:space-between; align-items:center; gap:12px; padding-block:18px}
-.brand{min-width:0; font-family:var(--display); font-weight:700; font-size:1.05rem; letter-spacing:-.01em; line-height:1.2}
-.brand small{display:block; font-family:var(--body); font-weight:500; font-size:.72rem; color:var(--muted); letter-spacing:.02em}
 
 .btn{
   display:inline-flex; align-items:center; gap:10px; background:var(--accent); color:var(--accent-ink);
@@ -321,3 +323,17 @@ h2{font-family:var(--display); font-weight:700; font-size:clamp(1.4rem,3vw,2rem)
 /* Rodapé centralizado */
 .legal{text-align:center}
 .legal p{margin:0 auto 4px; max-width:60ch}
+
+/* Marca: símbolo + nome + descrição + slogan (guia da marca, 25/10) */
+.brand{display:flex; align-items:center; gap:12px; min-width:0}
+.brand-mark{flex:none; width:34px; height:46px; display:block}
+.brand-text{display:flex; flex-direction:column; min-width:0}
+.brand-name{font-family:var(--brand-serif); font-weight:600; font-size:1.2rem; line-height:1.15; letter-spacing:-.005em; color:var(--logo-ink)}
+.brand-desc{font-family:var(--brand-sans); font-weight:500; font-size:.6rem; line-height:1.4; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:2px}
+.brand-slogan{font-family:var(--brand-serif); font-style:italic; font-weight:400; font-size:.86rem; line-height:1.3; color:var(--slogan); margin-top:1px}
+.contact-id .brand-name{font-family:var(--brand-serif); font-weight:600; font-size:1.3rem; color:var(--logo-ink)}
+.contact-id .brand-desc{font-size:.62rem; color:var(--muted)}
+.contact-id .brand-slogan{font-size:.95rem; color:var(--slogan)}
+@media (max-width:420px){ .brand{gap:9px} .brand-mark{width:28px; height:38px} .brand-name{font-size:1.05rem} .brand-desc{font-size:.52rem; letter-spacing:.1em} .brand-slogan{font-size:.78rem} }
+.brand-name,.brand-slogan{white-space:nowrap}
+@media (max-width:400px){ .t-label{display:none} .theme-opt{padding:8px} .a11y-bar{gap:4px} }
