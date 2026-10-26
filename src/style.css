@@ -9,18 +9,20 @@
   --display:"Unbounded","Poppins",system-ui,sans-serif;
   --body:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   /* O celular da demonstração é sempre claro, nos dois temas */
-  --phone:#0B1020; --screen:#FFFFFF; --screen-ink:#1F2430; --screen-muted:#6B7280; --screen-line:#E5E7EB;
+  --phone:#0B1020; --phone-edge:transparent; --screen:#FFFFFF; --screen-ink:#1F2430; --screen-muted:#6B7280; --screen-line:#E5E7EB;
   --map-a:#EAF0F6; --map-road:#FFFFFF; --open:#188038; --shadow:rgba(19,32,58,.28);
   --photo-label:rgba(11,16,32,.72); --photo-label-ink:#FFFFFF; --knob:#FFFFFF;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
+    --phone:#3A4767; --phone-edge:#55638A;
     --logo-ink:#F4EDE1; --slogan:#FB923C;
     --bg:#0D1424; --surface:#152038; --ink:#EDF0F6; --muted:#A4AEC4; --line:#26324D; --soft:#1B2843;
     --accent-tint:#5A3214; --shadow:rgba(0,0,0,.55); --band:#1B2843; --band-ink:#EDF0F6; --band-muted:#A4AEC4; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
+  --phone:#3A4767; --phone-edge:#55638A;
   --logo-ink:#F4EDE1; --slogan:#FB923C;
   --bg:#0D1424; --surface:#152038; --ink:#EDF0F6; --muted:#A4AEC4; --line:#26324D; --soft:#1B2843;
   --accent-tint:#5A3214; --shadow:rgba(0,0,0,.55); --band:#1B2843; --band-ink:#EDF0F6; --band-muted:#A4AEC4; color-scheme:dark;
@@ -68,7 +70,7 @@ h2{font-family:var(--display); font-weight:700; font-size:clamp(1.4rem,3vw,2rem)
 
 /* Celular com a demonstração */
 .stage{display:flex; flex-direction:column; align-items:center; gap:14px; min-width:0}
-.phone{width:290px; max-width:100%; aspect-ratio:9/18.5; background:var(--phone); border-radius:44px; padding:11px; position:relative; box-shadow:0 34px 60px -34px var(--shadow)}
+.phone{width:290px; max-width:100%; aspect-ratio:9/18.5; background:var(--phone); border-radius:44px; padding:11px; position:relative; box-shadow:inset 0 0 0 1px var(--phone-edge), 0 34px 60px -34px var(--shadow)}
 .screen{background:var(--screen); color:var(--screen-ink); border-radius:34px; height:100%; overflow:hidden; position:relative; padding:40px 13px 13px; display:flex; flex-direction:column; gap:10px; font-size:13px; line-height:1.4}
 .notch{position:absolute; top:9px; left:50%; transform:translateX(-50%); width:86px; height:22px; background:var(--phone); border-radius:12px; z-index:3}
 .search{display:flex; align-items:center; gap:8px; border:1px solid var(--screen-line); border-radius:999px; padding:10px 12px; box-shadow:0 1px 5px rgba(0,0,0,.08)}
