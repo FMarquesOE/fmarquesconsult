@@ -339,3 +339,11 @@ h2{font-family:var(--display); font-weight:700; font-size:clamp(1.4rem,3vw,2rem)
 @media (max-width:420px){ .brand{gap:9px} .brand-mark{width:28px; height:38px} .brand-name{font-size:1.05rem} .brand-desc{font-size:.52rem; letter-spacing:.1em} .brand-slogan{font-size:.78rem} }
 .brand-name,.brand-slogan{white-space:nowrap}
 @media (max-width:400px){ .t-label{display:none} .theme-opt{padding:8px} .a11y-bar{gap:4px} }
+
+/* Descrição da marca sempre em uma linha no celular (26/10) */
+.brand-desc{white-space:nowrap}
+@media (max-width:480px){
+  .brand-desc,.contact-id .brand-desc{font-size:clamp(7px, 2.05vw, 9px); letter-spacing:.06em}
+  .contact-photo{width:72px; height:72px}
+  .contact-id{gap:14px}
+}
