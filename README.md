@@ -7,3 +7,5 @@ Site da consultoria Felipe Marques (pequenos negócios). Página única, Vite.
 - Publicado no Vercel em https://www.fmarquestbg.com.br (cada envio para a branch `main` publica sozinho). O endereço antigo fmarquesconsult.vercel.app e o domínio sem "www" redirecionam para ele.
 
 Textos, pacotes e regras do site: `00_Referencia/CONTEXTO-PROJETO.md`, seção "Site da consultoria".
+
+Formulário do diagnóstico (botões laranja → planilha do Google → WhatsApp): `docs/formulario-diagnostico.md`.
