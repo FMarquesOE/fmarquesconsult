@@ -1,6 +1,7 @@
 # Formulário do diagnóstico · como funciona e como ligar a planilha
 
-Criado em 28/10/2026 (branch `formulario-diagnostico`).
+Criado em 28/10/2026. No ar no site desde 28/10/2026.
+Planilha: **Contatos do site · Felipe Marques** (Google Drive do Felipe), aba **Contatos**, com o Apps Script "Contatos do site" publicado como App da Web.
 
 ## O caminho do contato
 1. A pessoa toca num botão laranja: "Quero meu diagnóstico gratuito" (topo e chamada final), "Quero este" (pacotes) ou "Quero ajuda com isso" (resultado do teste).
@@ -77,6 +78,6 @@ O endereço `/exec` continua rodando a versão antiga até você publicar a nova
 Data · Nome · WhatsApp (link) · Negócio · O que vende · Cidade · Instagram (link) · Interesse · Veio de · Teste do site · Etiqueta · Observações.
 A **Etiqueta** começa como "Novo contato" e tem as mesmas opções das etiquetas do WhatsApp Business (Novo contato · Diagnóstico marcado · Proposta enviada · Cliente · Pioneira), mais "Não seguiu". Colunas novas podem ser criadas à direita, sem mexer nas 12 primeiras.
 
-## Antes de juntar na `main`
-- Decidir o prazo de guarda dos dados na página de privacidade (está "até 12 meses" para quem não fecha).
+## Observações
+- Prazo de guarda (decisão de 28/10): quem não fecha pacote tem os dados apagados em até 1 ano; na planilha, revisar e apagar as linhas com mais de 1 ano.
 - Quando a branch `dominio-fmarquestbg` entrar, conferir se as duas mudanças convivem no `index.html` (o formulário não mexe nas partes do domínio).
