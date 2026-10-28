@@ -1,3 +1,8 @@
+import { inject } from '@vercel/analytics';
+
+// Initialize Vercel Web Analytics
+inject();
+
 (function(){
   var WA = "https://wa.me/5521976822900?text=Oi%20Felipe%2C%20preciso%20da%20sua%20ajuda%21";
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
