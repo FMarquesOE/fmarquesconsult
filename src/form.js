@@ -80,9 +80,9 @@
 
   /* ----- Validação, com mensagens simples ----- */
   var rules = {
-    nome:    {min: 2, msg: 'Escreve seu nome, por favor.'},
+    nome:    {min: 2, msg: 'Escreve seu nome completo, por favor.'},
     negocio: {min: 2, msg: 'Qual é o nome do seu negócio?'},
-    oque:    {min: 2, msg: 'Conta rapidinho o que você vende ou faz.'},
+    oque:    {min: 2, msg: 'Conta qual produto ou serviço você vende.'},
     cidade:  {min: 2, msg: 'Em qual cidade fica o seu negócio?'}
   };
   function setErr(id, text){

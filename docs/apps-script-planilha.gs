@@ -2,12 +2,12 @@
  * Contatos do site · Felipe Marques
  * Cole este código na planilha: Extensões → Apps Script (apague o que já estiver lá).
  * Passo a passo completo em docs/formulario-diagnostico.md.
+ *
+ * O código secreto não fica escrito aqui: rode a função gerarCodigo() uma vez.
+ * Ela cria o código, guarda nas propriedades do script e mostra no registro
+ * para você copiar no Vercel (variável SHEETS_WEBHOOK_TOKEN).
  */
 
-// 1. Troque pelo seu código secreto (o MESMO que vai no Vercel, em SHEETS_WEBHOOK_TOKEN).
-const TOKEN = 'TROQUE_POR_UM_CODIGO_LONGO';
-
-// 2. Nada abaixo precisa mudar.
 const ABA = 'Contatos';
 const CABECALHO = ['Data', 'Nome', 'WhatsApp', 'Negócio', 'O que vende', 'Cidade', 'Instagram',
   'Interesse', 'Veio de', 'Teste do site', 'Etiqueta', 'Observações'];
@@ -16,7 +16,8 @@ const ETIQUETAS = ['Novo contato', 'Diagnóstico marcado', 'Proposta enviada', '
 function doPost(e) {
   let d;
   try { d = JSON.parse(e.postData.contents); } catch (err) { return resposta({ ok: false, error: 'formato' }); }
-  if (!d || d.token !== TOKEN || TOKEN === 'TROQUE_POR_UM_CODIGO_LONGO') return resposta({ ok: false, error: 'token' });
+  const token = PropertiesService.getScriptProperties().getProperty('TOKEN');
+  if (!d || !token || d.token !== token) return resposta({ ok: false, error: 'token' });
 
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
@@ -41,10 +42,21 @@ function doPost(e) {
   }
 }
 
-/** Rode esta função uma vez no editor (botão ▶ Executar) para autorizar e criar a aba com uma linha de teste. */
+/** 1º: rode uma vez. Cria o código secreto e mostra no registro de execução (copie para o Vercel). */
+function gerarCodigo() {
+  const props = PropertiesService.getScriptProperties();
+  let token = props.getProperty('TOKEN');
+  if (!token) {
+    token = Utilities.getUuid().replace(/-/g, '') + Utilities.getUuid().replace(/-/g, '').slice(0, 12);
+    props.setProperty('TOKEN', token);
+  }
+  Logger.log('Código para o Vercel (SHEETS_WEBHOOK_TOKEN): ' + token);
+}
+
+/** 2º: rode uma vez para autorizar e criar a aba com uma linha de teste. */
 function testar() {
   const r = doPost({ postData: { contents: JSON.stringify({
-    token: TOKEN, nome: 'Teste', whatsapp: '21999999999', negocio: 'Negócio de teste', oque: 'teste',
+    token: PropertiesService.getScriptProperties().getProperty('TOKEN'), nome: 'Teste', whatsapp: '21999999999', negocio: 'Negócio de teste', oque: 'teste',
     cidade: 'Duque de Caxias', instagram: '', interesse: 'Diagnóstico gratuito', origem: 'Topo', teste: ''
   }) } });
   Logger.log(r.getContent());
