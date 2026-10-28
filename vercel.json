@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "fmarquesconsult.vercel.app" }],
+      "destination": "https://www.fmarquestbg.com.br/:path*",
+      "permanent": true
+    }
+  ]
+}
