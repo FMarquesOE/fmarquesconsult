@@ -106,7 +106,8 @@
       '<h3 class="rtitle">' + esc(r.t) + '</h3>' +
       '<p class="rtext">' + esc(r.d) + '</p>' + list +
       '<div class="suggest">Por onde eu começaria: <strong>' + (r.p ? '<a href="#' + r.p + '" data-plan="' + r.p + '">' + esc(r.s) + '</a>' : esc(r.s)) + '</strong></div>' +
-      '<div class="r-actions"><a class="btn" href="' + WA + '" target="_blank" rel="noopener">Quero ajuda com isso</a>' +
+      '<div class="r-actions"><a class="btn" href="' + WA + '" target="_blank" rel="noopener" data-form="diagnostico" data-origem="Teste do site"' +
+      ' data-teste="Nível ' + r.lv + ' de 4 (' + score + ' de 5 sim)"' + (r.p ? ' data-interesse="' + esc(r.s) + '"' : '') + '>Quero ajuda com isso</a>' +
       '<button class="ghost" id="ans-redo" type="button">Refazer o teste</button></div></div>';
     box.querySelectorAll('.lv').forEach(function(b, i){
       if (i < r.lv){ if (reduce) b.classList.add('on'); else setTimeout(function(){ b.classList.add('on'); }, 150 + i*180); }
@@ -176,21 +177,4 @@
     hideT = setTimeout(function(){ balloon.classList.add('hide'); }, 9000);
   }, 20000);
   document.getElementById('closeBalloon').addEventListener('click', function(){ clearTimeout(hideT); balloon.classList.add('hide'); });
-})();
-
-/* ---------- Tema claro e escuro ---------- */
-(function(){
-  var root = document.documentElement, opts = document.querySelectorAll('[data-theme-set]');
-  var mq = window.matchMedia ? matchMedia('(prefers-color-scheme: dark)') : null;
-  function current(){ return root.getAttribute('data-theme') || (mq && mq.matches ? 'dark' : 'light'); }
-  function mark(){ var c = current(); opts.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.themeSet === c)); }); }
-  opts.forEach(function(b){
-    b.addEventListener('click', function(){
-      root.setAttribute('data-theme', b.dataset.themeSet);
-      try { localStorage.setItem('tema', b.dataset.themeSet); } catch(e){}
-      mark();
-    });
-  });
-  if (mq && mq.addEventListener) mq.addEventListener('change', mark);
-  mark();
 })();

@@ -71,7 +71,7 @@
       <h1>Seu negócio fácil de ser encontrado na internet e <span class="mark">recebendo mais clientes no WhatsApp</span>.</h1>
       <p class="lead">Eu cuido da presença digital e da organização do seu negócio: perfil no Google, site e WhatsApp trabalhando juntos, sem complicação e sem você precisar entender de tecnologia.</p>
       <div class="cta">
-        <a class="btn" href="https://wa.me/5521976822900?text=Oi%20Felipe%2C%20preciso%20da%20sua%20ajuda%21" target="_blank" rel="noopener">
+        <a class="btn" href="https://wa.me/5521976822900?text=Oi%20Felipe%2C%20preciso%20da%20sua%20ajuda%21" target="_blank" rel="noopener" data-form="diagnostico" data-origem="Topo">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.2 7.5L3 21l2-5.6A8.4 8.4 0 1 1 21 11.5z"/></svg>
           Quero meu diagnóstico gratuito
         </a>
@@ -180,7 +180,7 @@
           <li>Mensagem e link prontos para pedir avaliação às clientes</li>
           <li>Orientação para manter tudo atualizado</li>
         </ul>
-        <a class="btn alt" href="https://wa.me/5521976822900?text=Oi%20Felipe%2C%20preciso%20da%20sua%20ajuda%21" target="_blank" rel="noopener">Quero este</a>
+        <a class="btn alt" href="https://wa.me/5521976822900?text=Oi%20Felipe%2C%20preciso%20da%20sua%20ajuda%21" target="_blank" rel="noopener" data-form="diagnostico" data-interesse="Presença no Google" data-origem="Pacote Presença no Google">Quero este</a>
       </article>
 
       <article class="plan featured" id="p-vitrine">
@@ -195,7 +195,7 @@
           <li>Site preparado para aparecer bem no Google</li>
         </ul>
         <div class="monthly"><b>Na mensalidade</b>Hospedagem, endereço do site, manutenção e até 2 alterações por mês.</div>
-        <a class="btn" href="https://wa.me/5521976822900?text=Oi%20Felipe%2C%20preciso%20da%20sua%20ajuda%21" target="_blank" rel="noopener">Quero este</a>
+        <a class="btn" href="https://wa.me/5521976822900?text=Oi%20Felipe%2C%20preciso%20da%20sua%20ajuda%21" target="_blank" rel="noopener" data-form="diagnostico" data-interesse="Vitrine Digital" data-origem="Pacote Vitrine Digital">Quero este</a>
       </article>
 
       <article class="plan" id="p-organizado">
@@ -209,7 +209,7 @@
           <li>Roteiro para pedir avaliação, lista de clientes e mensagens para chamar de volta quem sumiu</li>
         </ul>
         <div class="monthly"><b>Na mensalidade</b>Tudo da Vitrine Digital e uma conversa por mês: quanto entrou, quanto sobrou e o que fazer agora.</div>
-        <a class="btn alt" href="https://wa.me/5521976822900?text=Oi%20Felipe%2C%20preciso%20da%20sua%20ajuda%21" target="_blank" rel="noopener">Quero este</a>
+        <a class="btn alt" href="https://wa.me/5521976822900?text=Oi%20Felipe%2C%20preciso%20da%20sua%20ajuda%21" target="_blank" rel="noopener" data-form="diagnostico" data-interesse="Negócio Organizado" data-origem="Pacote Negócio Organizado">Quero este</a>
       </article>
     </div>
     <div class="plans-foot">
@@ -286,7 +286,7 @@
       <p>Me chama no WhatsApp e marcamos seu diagnóstico gratuito de 20 minutos.</p>
     </div>
     <div class="cta">
-      <a class="btn" href="https://wa.me/5521976822900?text=Oi%20Felipe%2C%20preciso%20da%20sua%20ajuda%21" target="_blank" rel="noopener">
+      <a class="btn" href="https://wa.me/5521976822900?text=Oi%20Felipe%2C%20preciso%20da%20sua%20ajuda%21" target="_blank" rel="noopener" data-form="diagnostico" data-origem="Chamada final">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.2 7.5L3 21l2-5.6A8.4 8.4 0 1 1 21 11.5z"/></svg>
         Quero meu diagnóstico gratuito
       </a>
@@ -320,8 +320,88 @@
     <p>© 2026 Felipe Marques · Consultoria para pequenos negócios</p>
     <p>Todos os direitos reservados.</p>
     <p>É proibida a reprodução ou divulgação, total ou parcial, deste conteúdo sem autorização prévia e por escrito.</p>
+    <p><a href="/privacidade.html">Privacidade</a></p>
   </footer>
 </div>
+
+<dialog class="lead-form" id="lead-form" aria-labelledby="lf-title" aria-describedby="lf-sub">
+  <div class="lf-sheet">
+    <button class="lf-close" type="button" data-lf-close aria-label="Fechar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+
+    <form class="lf-step" id="lf-form" novalidate>
+      <p class="eyebrow lf-eyebrow" id="lf-eyebrow">Diagnóstico gratuito · 20 minutos</p>
+      <h2 class="lf-title" id="lf-title" tabindex="-1">Me conta sobre o seu negócio</h2>
+      <p class="lf-sub" id="lf-sub">Leva menos de 1 minuto. Depois, a conversa continua no seu WhatsApp.</p>
+
+      <div class="lf-grid">
+        <div class="lf-field">
+          <label for="lf-nome">Seu nome</label>
+          <input id="lf-nome" name="nome" type="text" autocomplete="name" autocapitalize="words" maxlength="80" required>
+          <p class="lf-err" id="lf-nome-err" hidden></p>
+        </div>
+        <div class="lf-field">
+          <label for="lf-whatsapp">Seu WhatsApp <span class="lf-hint">com DDD</span></label>
+          <input id="lf-whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(21) 99999-9999" maxlength="20" required>
+          <p class="lf-err" id="lf-whatsapp-err" hidden></p>
+        </div>
+        <div class="lf-field">
+          <label for="lf-negocio">Nome do negócio</label>
+          <input id="lf-negocio" name="negocio" type="text" autocomplete="organization" maxlength="100" required>
+          <p class="lf-err" id="lf-negocio-err" hidden></p>
+        </div>
+        <div class="lf-field">
+          <label for="lf-oque">O que você vende ou faz?</label>
+          <input id="lf-oque" name="oque" type="text" placeholder="Ex.: unhas, bolos, roupas" maxlength="100" required>
+          <p class="lf-err" id="lf-oque-err" hidden></p>
+        </div>
+        <div class="lf-field">
+          <label for="lf-cidade">Cidade</label>
+          <input id="lf-cidade" name="cidade" type="text" autocomplete="address-level2" placeholder="Ex.: Duque de Caxias" maxlength="80" required>
+          <p class="lf-err" id="lf-cidade-err" hidden></p>
+        </div>
+        <div class="lf-field">
+          <label for="lf-instagram">Instagram do negócio <span class="lf-hint">se tiver</span></label>
+          <input id="lf-instagram" name="instagram" type="text" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="@seunegocio" maxlength="60">
+        </div>
+      </div>
+
+      <fieldset class="lf-chips">
+        <legend>O que te interessa?</legend>
+        <label><input type="radio" name="interesse" value="Diagnóstico gratuito" checked><span>Diagnóstico gratuito</span></label>
+        <label><input type="radio" name="interesse" value="Presença no Google"><span>Presença no Google</span></label>
+        <label><input type="radio" name="interesse" value="Vitrine Digital"><span>Vitrine Digital</span></label>
+        <label><input type="radio" name="interesse" value="Negócio Organizado"><span>Negócio Organizado</span></label>
+      </fieldset>
+
+      <div class="lf-hp" aria-hidden="true">
+        <label for="lf-site">Não preencha este campo</label>
+        <input id="lf-site" name="site" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <label class="lf-consent">
+        <input type="checkbox" name="consentimento" id="lf-consent" required>
+        <span>Autorizo o Felipe a falar comigo pelo WhatsApp sobre o meu negócio. <a href="/privacidade.html" target="_blank" rel="noopener">Como uso seus dados</a></span>
+      </label>
+      <p class="lf-err" id="lf-consent-err" hidden></p>
+
+      <button class="btn lf-submit" type="submit">
+        <span class="lf-wa" aria-hidden="true"></span>
+        Enviar e abrir o WhatsApp
+      </button>
+      <p class="lf-foot">Sem compromisso. Seus dados não são passados para ninguém.</p>
+    </form>
+
+    <div class="lf-step lf-done" id="lf-done" hidden>
+      <span class="lf-check" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+      <h2 class="lf-title" id="lf-done-title" tabindex="-1">Pronto!</h2>
+      <p class="lf-sub">Seu WhatsApp abriu com a mensagem pronta. É só tocar em enviar que eu te respondo. Se não abriu, use o botão abaixo.</p>
+      <a class="btn lf-submit" id="lf-again" href="#" target="_blank" rel="noopener"><span class="lf-wa" aria-hidden="true"></span>Abrir o WhatsApp de novo</a>
+      <button class="ghost lf-back" type="button" data-lf-close>Voltar para o site</button>
+    </div>
+  </div>
+</dialog>
 
 <div class="wa-float">
   <div class="balloon hide" id="balloon" role="status">
@@ -330,6 +410,8 @@
   </div>
   <a class="wa-btn" href="https://wa.me/5521976822900?text=Oi%20Felipe%2C%20preciso%20da%20sua%20ajuda%21" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp"><span class="wa-glyph" aria-hidden="true"></span></a>
 </div>
+<script type="module" src="/src/theme.js"></script>
 <script type="module" src="/src/main.js"></script>
+<script type="module" src="/src/form.js"></script>
 </body>
 </html>
