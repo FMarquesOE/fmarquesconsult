@@ -57,6 +57,7 @@
 
     <h2>O que eu recebo</h2>
     <p>Quando você preenche o formulário do diagnóstico: seu nome completo, seu WhatsApp, o nome do negócio, o produto ou serviço que você vende, a cidade, o Instagram do negócio (se você informar), o pacote que te interessa e o resultado do teste do site, se você fez.</p>
+    <p>Se você permitir, também recebo estatísticas de visita do site (veja <a href="#cookies">Estatísticas de visita</a>).</p>
 
     <h2>Para que eu uso</h2>
     <ul>
@@ -67,7 +68,7 @@
     <p>Eu só faço isso porque você autorizou, marcando a caixa no formulário. Você pode retirar essa autorização quando quiser.</p>
 
     <h2>Onde os dados ficam</h2>
-    <p>Numa planilha do Google, que só eu acesso, e no aviso que chega no meu email do Google. O site fica hospedado na Vercel. A conversa acontece no WhatsApp.</p>
+    <p>Numa planilha do Google, que só eu acesso, e no aviso que chega no meu email do Google. O site fica hospedado na Vercel. A conversa acontece no WhatsApp. As estatísticas de visita, se você permitir, ficam no Google Analytics.</p>
 
     <h2>Por quanto tempo</h2>
     <p>Se você não fechar nenhum pacote, eu apago seus dados em até 1 ano. Se virar cliente, eles ficam enquanto durar o nosso contrato.</p>
@@ -82,10 +83,21 @@
     </ul>
     <p>É só me pedir pelo WhatsApp. Eu respondo em até 15 dias.</p>
 
-    <h2>No seu aparelho</h2>
-    <p>O site não usa cookies de propaganda nem de rastreamento. Ele guarda no seu aparelho só a sua escolha de tema (claro ou escuro). As letras do site vêm do Google Fonts.</p>
+    <h2 id="cookies">Estatísticas de visita (cookies)</h2>
+    <p>Se você permitir, o site usa o Google Analytics para contar as visitas: quantas pessoas entraram, quais partes do site viram, de qual cidade aproximada, por qual aparelho e de onde vieram (Instagram, Google, um link). Eu vejo só números somados, não quem é você. Isso me ajuda a saber o que funciona no site.</p>
+    <p>Sem a sua permissão, o site não guarda nada disso no seu aparelho, e o Google recebe só um aviso de visita sem cookie e sem identificação. Os recursos de propaganda do Google ficam sempre desligados. Os dados do Google Analytics ficam nos servidores do Google, que podem estar fora do Brasil.</p>
+    <div class="consent-inline">
+      <p class="consent-status" data-consent-status role="status">Hoje: você ainda não escolheu. Sem escolha, nada é guardado.</p>
+      <div class="consent-btns">
+        <button type="button" class="consent-btn" data-consent="aceito" aria-pressed="false">Permitir</button>
+        <button type="button" class="consent-btn" data-consent="recusado" aria-pressed="false">Não permitir</button>
+      </div>
+    </div>
 
-    <p class="policy-date">Atualizado em 28/10/2026.</p>
+    <h2>No seu aparelho</h2>
+    <p>O site guarda no seu aparelho a sua escolha de tema (claro ou escuro) e a sua escolha sobre as estatísticas de visita. Os cookies do Google Analytics só entram se você permitir. Não há cookies de propaganda. As letras do site vêm do Google Fonts.</p>
+
+    <p class="policy-date">Atualizado em 31/10/2026.</p>
     <a class="ghost policy-back" href="/">← Voltar para o site</a>
   </main>
 
@@ -95,5 +107,6 @@
   </footer>
 </div>
 <script type="module" src="/src/theme.js"></script>
+<script type="module" src="/src/consent.js"></script>
 </body>
 </html>

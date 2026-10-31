@@ -1,19 +1,25 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6MZGV9X6CR"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Google Analytics com modo de consentimento: nada é guardado no aparelho até a pessoa aceitar (aviso de cookies em src/consent.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  (function(){
+    var escolha = null;
+    try { escolha = localStorage.getItem('consentimento-estatisticas'); } catch(e){}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: escolha === 'aceito' ? 'granted' : 'denied',
+      wait_for_update: 500
+    });
+  })();
   gtag('js', new Date());
-
   gtag('config', 'G-6MZGV9X6CR');
 </script>
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6MZGV9X6CR"></script>
 <title>Felipe Marques · Consultoria para pequenos negócios</title>
 <meta name="description" content="Seu negócio fácil de ser encontrado na internet e recebendo mais clientes no WhatsApp. De perto, para ir longe. Diagnóstico gratuito de 20 minutos.">
 <link rel="canonical" href="https://www.fmarquestbg.com.br/">
@@ -331,7 +337,7 @@
     <p>© 2026 Felipe Marques · Consultoria para pequenos negócios</p>
     <p>Todos os direitos reservados.</p>
     <p>É proibida a reprodução ou divulgação, total ou parcial, deste conteúdo sem autorização prévia e por escrito.</p>
-    <p><a href="/privacidade.html">Privacidade</a></p>
+    <p><a href="/privacidade.html">Privacidade</a> · <button type="button" class="link-btn" data-cookie-prefs>Cookies</button></p>
   </footer>
 </div>
 
@@ -414,7 +420,15 @@
   </div>
 </dialog>
 
-<div class="wa-float">
+<div class="consent" id="consent" role="region" aria-labelledby="consent-title" hidden>
+  <p><strong id="consent-title">Posso contar a sua visita?</strong> Uso o Google Analytics só para saber quantas pessoas visitam o site e o que funciona melhor. Nada de propaganda. <a href="/privacidade.html#cookies">Saiba mais</a></p>
+  <div class="consent-btns">
+    <button type="button" class="consent-btn" data-consent="recusado">Não, obrigado</button>
+    <button type="button" class="consent-btn" data-consent="aceito">Pode contar</button>
+  </div>
+</div>
+
+<div class="wa-float start">
   <div class="balloon hide" id="balloon" role="status">
     <a href="https://wa.me/5521976822900?text=Oi%20Felipe%2C%20preciso%20da%20sua%20ajuda%21" target="_blank" rel="noopener">Posso te ajudar? 👋</a>
     <button class="x" id="closeBalloon" type="button" aria-label="Fechar">×</button>
@@ -424,5 +438,6 @@
 <script type="module" src="/src/theme.js"></script>
 <script type="module" src="/src/main.js"></script>
 <script type="module" src="/src/form.js"></script>
+<script type="module" src="/src/consent.js"></script>
 </body>
 </html>

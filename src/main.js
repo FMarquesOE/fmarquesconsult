@@ -170,11 +170,53 @@
   var dets = document.querySelectorAll('.faq details');
   dets.forEach(function(d){ d.addEventListener('toggle', function(){ if (d.open) dets.forEach(function(o){ if (o !== d) o.open = false; }); }); });
 
+  /* ---------- Botão flutuante do WhatsApp ----------
+     No celular: some enquanto a pessoa rola para baixo (lendo) e volta quando ela rola para cima.
+     Também fica fora quando já há um botão de WhatsApp na tela (topo e fim da página).
+     No computador continua sempre visível. */
+  var float = document.querySelector('.wa-float');
+  var mobile = window.matchMedia ? matchMedia('(max-width:880px)') : { matches:false };
+  var heroCta = document.querySelector('.hero .btn');
+  var ends = [document.getElementById('contato'), document.getElementById('fale-comigo'), document.querySelector('.legal')].filter(Boolean);
+  var inHero = false, endsOn = 0, down = false, balloonOn = false;
+  function updateFloat(){
+    var away = mobile.matches && !balloonOn && (inHero || endsOn > 0 || down);
+    float.classList.toggle('away', away);
+  }
+  if (hasIO){
+    if (heroCta){
+      var hr = heroCta.getBoundingClientRect(); inHero = hr.bottom > 0 && hr.top < innerHeight;
+      new IntersectionObserver(function(es){ inHero = es[es.length - 1].isIntersecting; updateFloat(); }).observe(heroCta);
+    }
+    var endIO = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (!!e.target._on !== e.isIntersecting){ e.target._on = e.isIntersecting; endsOn += e.isIntersecting ? 1 : -1; } });
+      updateFloat();
+    });
+    ends.forEach(function(el){ endIO.observe(el); });
+  }
+  var lastY = window.scrollY, acc = 0, waTick = false;
+  window.addEventListener('scroll', function(){
+    if (waTick) return; waTick = true;
+    requestAnimationFrame(function(){
+      waTick = false;
+      var y = window.scrollY, dy = y - lastY; lastY = y;
+      if (!dy) return;
+      acc = (dy > 0) === (acc > 0) ? acc + dy : dy;
+      if (acc > 24 && !down){ down = true; if (balloonOn) closeBalloon(); updateFloat(); }
+      else if (acc < -24 && down){ down = false; updateFloat(); }
+    });
+  }, { passive:true });
+  if (mobile.addEventListener) mobile.addEventListener('change', updateFloat);
+  updateFloat();
+  float.classList.remove('start');
+
   /* ---------- Balão do WhatsApp: aparece uma vez e some sozinho ---------- */
   var balloon = document.getElementById('balloon'), hideT;
+  function closeBalloon(){ clearTimeout(hideT); balloon.classList.add('hide'); balloonOn = false; updateFloat(); }
   setTimeout(function(){
+    balloonOn = true; updateFloat();
     balloon.classList.remove('hide');
-    hideT = setTimeout(function(){ balloon.classList.add('hide'); }, 9000);
+    hideT = setTimeout(closeBalloon, 9000);
   }, 20000);
-  document.getElementById('closeBalloon').addEventListener('click', function(){ clearTimeout(hideT); balloon.classList.add('hide'); });
+  document.getElementById('closeBalloon').addEventListener('click', closeBalloon);
 })();
