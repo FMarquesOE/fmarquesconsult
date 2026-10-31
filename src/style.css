@@ -452,7 +452,7 @@ html.lf-open{overflow:hidden}
 /* Aviso de cookies enxuto (31/10, tarde): só a pergunta e Sim / Não, numa linha */
 .consent{display:flex; align-items:center; gap:12px 16px; flex-wrap:wrap; width:auto; max-width:calc(100% - 36px); padding:12px 12px 12px 18px}
 .consent[hidden]{display:none}
-.consent p{margin:0; font-family:var(--display); font-size:.92rem; font-weight:600}
+.consent p{margin:0; flex:1 1 220px; font-size:.9rem; font-weight:500; line-height:1.45}
 .consent .consent-btns{flex:none}
 .consent .consent-btn{flex:none; min-width:72px; padding:8px 16px}
 @media (max-width:880px){ .consent{justify-content:space-between; max-width:none} }
