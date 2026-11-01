@@ -124,7 +124,12 @@
     }
     var t = e.target.closest('button'); if (!t) return;
     if (t.dataset.v !== undefined){
+      if (idx === 0 && window.fmTrack) fmTrack('teste_inicio');
       ans[idx] = Number(t.dataset.v); idx++;
+      if (idx === Q.length && window.fmTrack){
+        var pts = ans.reduce(function(a,b){ return a+b; }, 0);
+        fmTrack('teste_concluido', {nivel: pts <= 1 ? 1 : pts <= 3 ? 2 : pts === 4 ? 3 : 4, pontos: pts});
+      }
       render(true);
       var segs = box.querySelectorAll('.seg');
       if (segs[idx-1]) { segs[idx-1].classList.remove('done'); void segs[idx-1].offsetWidth; segs[idx-1].classList.add('done'); }
@@ -132,6 +137,33 @@
     else if (t.id === 'ans-redo'){ idx = 0; ans = []; render(true); }
   });
   render(false);
+
+  /* ---------- Eventos do site (GA4) ---------- */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a');
+    if (!a || !window.fmTrack) return;
+    if (a.dataset.track === 'teste_topo'){
+      fmTrack('teste_botao_topo');
+      var alvo = document.getElementById('teste');
+      if (alvo){
+        e.preventDefault();
+        alvo.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'});
+        try { history.replaceState(null, '', '#teste'); } catch(_){}
+        var q = document.getElementById('quiz');
+        if (q){ q.setAttribute('tabindex', '-1'); q.focus({preventScroll: true}); }
+      }
+      return;
+    }
+    /* Botões que vão direto para o WhatsApp (os laranja abrem o formulário e são medidos lá) */
+    if (a.href && a.href.indexOf('wa.me/') > -1 && !a.hasAttribute('data-form')){
+      var origem = a.classList.contains('wa-btn') ? 'Botão flutuante'
+        : a.closest('.balloon, #balloon') ? 'Balão' 
+        : a.classList.contains('channel') ? 'Fale comigo'
+        : a.id === 'lf-again' ? 'Formulário (abrir de novo)'
+        : 'Outro';
+      fmTrack('clique_whatsapp', {origem: origem});
+    }
+  });
 
   /* ---------- 6. Antes e depois arrastável ---------- */
   var ba = document.getElementById('ba'), range = document.getElementById('ba-range'), hint = document.getElementById('ba-hint');

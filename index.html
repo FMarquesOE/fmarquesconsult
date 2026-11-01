@@ -18,6 +18,8 @@
   })();
   gtag('js', new Date());
   gtag('config', 'G-6MZGV9X6CR');
+  /* Eventos do site (ver docs/eventos-ga4.md). Respeita o consentimento acima. */
+  window.fmTrack = function(nome, dados){ try { gtag('event', nome, dados || {}); } catch(e){} };
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6MZGV9X6CR"></script>
 <title>Felipe Marques · Consultoria para pequenos negócios</title>
@@ -93,6 +95,10 @@
           Quero meu diagnóstico gratuito
         </a>
         <span class="cta-note">Conversa de 20 minutos, sem compromisso.</span>
+        <a class="test-link" href="#teste" data-track="teste_topo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span>Ou faça o <strong>teste de 1 minuto</strong> e veja por onde começar</span>
+        </a>
       </div>
       <div class="who">
         <img class="avatar" src="/img/felipe-avatar.jpg" alt="Felipe Marques" width="52" height="52">

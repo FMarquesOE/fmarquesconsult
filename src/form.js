@@ -26,6 +26,7 @@
       : 'Pacote ' + interesse;
     form.hidden = false; done.hidden = true;
     openedAt = Date.now();
+    if (window.fmTrack) fmTrack('formulario_aberto', {origem: ctx.origem, interesse: interesse});
     dlg.showModal();
     document.documentElement.classList.add('lf-open');
     title.focus({preventScroll: true});
@@ -160,6 +161,9 @@
     } catch(err){
       try { navigator.sendBeacon('/api/diagnostico', new Blob([payload], {type: 'application/json'})); } catch(_){}
     }
+
+    /* Evento principal do GA4: contato enviado pelo formulário (sem dados pessoais) */
+    if (window.fmTrack) fmTrack('generate_lead', {origem: ctx.origem, interesse: d.interesse, fez_teste: ctx.teste ? 'sim' : 'nao'});
 
     /* 2. Abre o WhatsApp no mesmo toque (assim o navegador não bloqueia) */
     try { window.open(url, '_blank', 'noopener'); } catch(_){}
