@@ -162,8 +162,25 @@
         : a.id === 'lf-again' ? 'Formulário (abrir de novo)'
         : 'Outro';
       fmTrack('clique_whatsapp', {origem: origem});
+      return;
+    }
+    if (a.href && a.href.indexOf('instagram.com/') > -1){
+      fmTrack('clique_instagram', {origem: a.classList.contains('channel') ? 'Fale comigo' : a.closest('#quem-sou') ? 'Quem sou' : 'Outro'});
     }
   });
+
+  /* Até onde a pessoa chega: cada seção conta uma vez por visita, quando chega à parte de cima da tela (vale para seção mais alta que a tela) */
+  if (hasIO && window.fmTrack){
+    var NOMES = {reconhece:'Você se reconhece', 'como-funciona':'Como funciona', teste:'Teste', pacotes:'Pacotes', 'case':'Case', 'quem-sou':'Quem sou', perguntas:'Perguntas', contato:'Chamada final'};
+    var secIO = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        secIO.unobserve(e.target);
+        fmTrack('secao_vista', {secao: NOMES[e.target.id]});
+      });
+    }, {rootMargin: '0px 0px -45% 0px'});
+    Object.keys(NOMES).forEach(function(id){ var el = document.getElementById(id); if (el) secIO.observe(el); });
+  }
 
   /* ---------- 6. Antes e depois arrastável ---------- */
   var ba = document.getElementById('ba'), range = document.getElementById('ba-range'), hint = document.getElementById('ba-hint');
@@ -200,7 +217,11 @@
 
   /* ---------- Perguntas: só uma aberta por vez ---------- */
   var dets = document.querySelectorAll('.faq details');
-  dets.forEach(function(d){ d.addEventListener('toggle', function(){ if (d.open) dets.forEach(function(o){ if (o !== d) o.open = false; }); }); });
+  dets.forEach(function(d){ d.addEventListener('toggle', function(){
+    if (!d.open) return;
+    dets.forEach(function(o){ if (o !== d) o.open = false; });
+    if (window.fmTrack && !d._contou){ d._contou = true; fmTrack('pergunta_aberta', {pergunta: d.querySelector('summary').textContent.trim()}); }
+  }); });
 
   /* ---------- Botão flutuante do WhatsApp ----------
      No celular: some enquanto a pessoa rola para baixo (lendo) e volta quando ela rola para cima.

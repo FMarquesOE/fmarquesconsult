@@ -17,7 +17,18 @@
     });
   })();
   gtag('js', new Date());
-  gtag('config', 'G-6MZGV9X6CR');
+  /* ?interno=1 marca este aparelho como do Felipe (filtro "Tráfego interno" no GA4); ?interno=0 desmarca.
+     ?debug=1 mostra os eventos no DebugView do GA4. Ver docs/eventos-ga4.md */
+  (function(){
+    var cfg = {}, q = location.search;
+    try {
+      if (/[?&]interno=1/.test(q)) localStorage.setItem('fm-interno', '1');
+      if (/[?&]interno=0/.test(q)) localStorage.removeItem('fm-interno');
+      if (localStorage.getItem('fm-interno') === '1') cfg.traffic_type = 'internal';
+    } catch(e){}
+    if (/[?&]debug=1/.test(q)) cfg.debug_mode = true;
+    gtag('config', 'G-6MZGV9X6CR', cfg);
+  })();
   /* Eventos do site (ver docs/eventos-ga4.md). Respeita o consentimento acima. */
   window.fmTrack = function(nome, dados){ try { gtag('event', nome, dados || {}); } catch(e){} };
 </script>

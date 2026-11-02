@@ -2,9 +2,44 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "fmarquesconsult.vercel.app" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "fmarquesconsult.vercel.app"
+        }
+      ],
       "destination": "https://www.fmarquestbg.com.br/:path*",
       "permanent": true
+    },
+    {
+      "source": "/ig",
+      "destination": "/?utm_source=instagram&utm_medium=social&utm_campaign=bio",
+      "permanent": false
+    },
+    {
+      "source": "/stories",
+      "destination": "/?utm_source=instagram&utm_medium=social&utm_campaign=stories",
+      "permanent": false
+    },
+    {
+      "source": "/dm",
+      "destination": "/?utm_source=instagram&utm_medium=social&utm_campaign=direct",
+      "permanent": false
+    },
+    {
+      "source": "/wpp",
+      "destination": "/?utm_source=whatsapp&utm_medium=social&utm_campaign=catalogo",
+      "permanent": false
+    },
+    {
+      "source": "/google",
+      "destination": "/?utm_source=google&utm_medium=organic&utm_campaign=perfil_empresa",
+      "permanent": false
+    },
+    {
+      "source": "/cartao",
+      "destination": "/?utm_source=cartao&utm_medium=offline&utm_campaign=cartao_visita",
+      "permanent": false
     }
   ]
 }
