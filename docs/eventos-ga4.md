@@ -40,14 +40,20 @@ O GA4 também mede sozinho (medição otimizada): visualização de página, rol
 - O navegador de dentro do Instagram e do WhatsApp é separado: para marcar, abra o link com `?interno=1` também por lá.
 - **Ver os eventos na hora:** abra o site com `?debug=1` e acompanhe em Administrador → DebugView. Aceite os cookies no aviso para o teste valer.
 
-## 4. Configurar no GA4 (uma vez, pelo Felipe)
-1. **Eventos principais** (Administrador → Exibição de dados → Eventos): marcar como principal `generate_lead` e `clique_whatsapp`. São os dois jeitos de uma pessoa te procurar pelo site.
-2. **Dimensões personalizadas** (Administrador → Exibição de dados → Definições personalizadas → Criar dimensão, escopo "Evento"): `origem`, `interesse`, `fez_teste`, `nivel`, `secao` e `pergunta`. Sem isso, os eventos chegam, mas os detalhes não aparecem nos relatórios. Criar o mesmo nome no "Parâmetro de evento".
-3. **Retenção de dados** (Administrador → Coleta e modificação de dados → Retenção de dados): mudar de 2 para **14 meses**. Sem isso, as explorações perdem tudo o que tem mais de 2 meses.
-4. **Tráfego interno** (Administrador → Coleta e modificação de dados → Filtros de dados): o filtro "Internal Traffic" já existe em modo "Teste". Passar para **Ativo** depois de conferir no DebugView que as suas visitas chegam com `traffic_type = internal`. Filtro ativo não volta atrás nos dados já filtrados.
-5. **Fuso e moeda** (Administrador → Detalhes da propriedade): fuso **(GMT-03:00) São Paulo** e moeda **Real (BRL)**.
-6. **Search Console** (Administrador → Vinculações de produtos → Search Console): vincular `fmarquestbg.com.br`. Mostra no GA4 as buscas que trazem gente ao site.
-7. **Google Signals e anúncios:** deixar desligados. O aviso de cookies diz que não há propaganda.
+## 4. Configuração do GA4 (propriedade "Consultoria Felipe Marques", ID 561106797)
+| Item | Situação |
+|---|---|
+| Dimensões personalizadas `origem`, `interesse`, `fez_teste`, `nivel` | Feito em 31/10 |
+| Dimensões `secao` (Secao vista) e `pergunta` (Pergunta aberta) | Feito em 02/11 |
+| Retenção de dados em 14 meses | Feito em 31/10 |
+| `generate_lead` como evento principal | Feito em 01/11 |
+| Search Console vinculado | Feito em 31/10 |
+| Fuso horário dos relatórios: (GMT-03:00) São Paulo (estava em Rio Branco, GMT-05) · moeda Real | Feito em 02/11 |
+| **`clique_whatsapp` como evento principal** | **Falta (Felipe):** o evento só aparece na lista depois do primeiro clique real e de até 24 h. Administrador → Exibição de dados → Eventos → Eventos recentes → marcar a estrela de `clique_whatsapp`. |
+| **Filtro "Internal Traffic" de Teste para Ativo** | **Falta (Felipe):** Administrador → Coleta e modificação de dados → Filtros de dados → Internal Traffic → Estado do filtro: Ativa → Salvar. Antes, marcar os seus navegadores com `?interno=1` (o navegador do app do Claude já está marcado). |
+| Google Signals e recursos de anúncio | Deixar desligados (o aviso de cookies promete que não há propaganda) |
+
+Atenção: a conta Google do navegador também tem a propriedade do studio (Vmafraunhas, ID 540799123). Conferir sempre no topo que está em "Consultoria Felipe Marques" antes de mexer.
 
 ## 5. Como ler
 - **De onde vem quem procura você:** Relatórios → Aquisição → Aquisição de tráfego, com "Origem/meio da sessão" e a coluna de eventos principais. Compare instagram / social com google / organic e (direct).
